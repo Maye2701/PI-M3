@@ -3,7 +3,7 @@
 export function getAboutView (){
     return (
     `
-        <section>
+        <section class="about-view">
         <h1>Sobre el proyecto </h1>
 
         <h2>Propósito</h2>

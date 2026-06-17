@@ -35,6 +35,7 @@ export function setupChat (){
         renderMessages();
         messageInput.value=""
         chatStatus.textContent="";
+        messageInput.focus();
 
     }) 
 

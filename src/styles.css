@@ -1,7 +1,219 @@
-body{
-    background-color: rgb(241, 241, 241);
+*{
+    box-sizing: border-box;
+    
 }
 
-h1{
-    color: bisque;
+:root {
+    --bg: #05070d;
+    --panel: rgba(18, 25, 35, 0.88);
+    --border: rgba(245, 185, 66, 0.25);
+    --primary: #f5b942;
+    --secondary: #c62828;
+    --accent: #38bdf8;
+    --text: #ffffff;
+    --text-muted: #a8b3c2;
 }
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b0f14;
+    color: var(--text);
+    min-height: 100vh;
+    background:
+    radial-gradient(circle at top left, rgba(198, 40, 40, 0.22), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.18), transparent 30%),
+    var(--bg);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: rgba(10, 15, 30, 0.78);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 0 24px rgba(245, 185, 66, 0.12);
+    padding: 0.75rem 1rem;
+}
+
+nav{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: rgba(198, 40, 40, 0.18);
+    border-color: var(--primary);
+color: var(--primary);
+}
+main{
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    padding: 1.5rem;
+    flex: 1;
+}
+
+footer{
+    background-color: var(--panel);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 1rem;
+    text-align: center;
+}
+
+
+section {
+    background: var(--panel);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow:
+        0 0 24px rgba(56, 189, 248, 0.08),
+        inset 0 0 24px rgba(245, 185, 66, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
+    margin: -1.25rem -1.25rem 1.25rem;
+}
+
+h1 {
+    color:var(--primary);
+    margin-top: 0;
+    text-shadow: 0 0 12px rgba(245, 185, 66, 0.25);
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: 1px;
+}
+
+p{
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+button{
+    border: none;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: var(--text);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 0 18px rgba(245, 185, 66, 0.25);
+}
+
+#chat-messages{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: min(55vh, 420px);
+    padding: 1rem;
+    background: rgba(5, 7, 13, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+    box-shadow: inset 0 0 22px rgba(56, 189, 248, 0.08);
+}
+
+.message {
+    width: fit-content;
+    max-width: 75%;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.user{
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+    background: linear-gradient(135deg, var(--secondary), #7f1d1d);
+    color: var(--text);
+}
+
+.assistant{
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    background: rgba(31, 42, 55, 0.92);
+    color: var(--text);
+    border: 1px solid rgba(245, 185, 66, 0.18);
+}
+
+#chat-form{
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: column;
+}
+
+textarea{
+    width: 100%;
+    min-height: 56px;
+    max-height: 120px;
+    resize: none;
+    background: rgba(5, 7, 13, 0.7);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-family: inherit;
+}
+
+textarea:focus{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.18);
+}
+
+#chat-status {
+    min-height: 1.5rem;
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+
+.chat-view h1 {
+    text-align: center;
+}
+
+button:focus-visible { 
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+
+
+@media (min-width: 768px) {
+    #chat-form {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    textarea {
+        min-height: 48px;
+    }
+
+    #chat-form button {
+        min-width: 130px;
+    }
+}
+

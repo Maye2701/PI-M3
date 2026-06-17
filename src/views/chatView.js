@@ -3,7 +3,7 @@
 export function getChatView (){
     return (
     `
-    <section>
+    <section class="chat-view">
 
     <h1>Chat con Tony Stark </h1>
     <div id="chat-messages"> </div>
