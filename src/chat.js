@@ -1,3 +1,4 @@
+import { isEmptyMessage } from "./utils.js";
 
 
 const messages = [];
@@ -13,9 +14,9 @@ export function setupChat (){
 
         const messageText = messageInput.value.trim();
 
-        if(messageText === ""){
+        if(isEmptyMessage(messageText)){
             return;
-        }
+            }
 
         messages.push({
             role:"user",
