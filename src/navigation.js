@@ -3,7 +3,7 @@ import { renderRoute } from "./router.js";
 
 export function setupLinkInterception(){
 
-    const navLinks = document.querySelectorAll("nav a");
+    const navLinks = document.querySelectorAll("a");
 
     navLinks.forEach((link)=>{
 

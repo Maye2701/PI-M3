@@ -17,7 +17,6 @@
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #0b0f14;
     color: var(--text);
     min-height: 100vh;
     background:
@@ -54,7 +53,7 @@ nav a {
 nav a:hover {
     background-color: rgba(198, 40, 40, 0.18);
     border-color: var(--primary);
-color: var(--primary);
+    color: var(--primary);
 }
 main{
     width: min(100%, 1000px);
@@ -94,7 +93,7 @@ section::before {
 }
 
 h1 {
-    color:var(--primary);
+    color: var(--primary);
     margin-top: 0;
     text-shadow: 0 0 12px rgba(245, 185, 66, 0.25);
     font-size: clamp(2rem, 6vw, 3rem);
@@ -200,6 +199,22 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
+.primary-link {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: var(--text);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 18px rgba(245, 185, 66, 0.25);
+}
+
 
 
 @media (min-width: 768px) {
@@ -217,3 +232,24 @@ button:focus-visible {
     }
 }
 
+@media (min-width: 1024px) {
+    main {
+        padding: 2.5rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    section::before {
+        margin: -2rem -2rem 2rem;
+    }
+
+    #chat-messages {
+        height: min(60vh, 520px);
+    }
+
+    nav {
+        justify-content: flex-start;
+    }
+}
