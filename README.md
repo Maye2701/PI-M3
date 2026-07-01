@@ -87,3 +87,13 @@ Durante el desarrollo se utilizó inteligencia artificial como apoyo para compre
 ## Aviso legal / educativo
 
 Tony Stark es un personaje ficticio perteneciente al universo de Marvel. Este proyecto tiene fines educativos y no está afiliado oficialmente con Marvel, Disney ni sus marcas relacionadas.
+
+## Demo en producción
+
+La aplicación desplegada en Vercel está disponible en:
+
+https://pi-m3-tony-stark-chat.vercel.app
+
+## Repositorio
+
+https://github.com/Maye2701/PI-M3
