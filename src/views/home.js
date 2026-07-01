@@ -1,3 +1,4 @@
+import tonyImage from "../assets/tony-stark.png";
 export function getHomeView() {
     return `
         <section class="home-view">
@@ -8,7 +9,7 @@ export function getHomeView() {
                     <a class="primary-link" href="/chat">Iniciar conversación</a>
                 </div>
 
-                <img class="home-image" src="/src/assets/tony-stark.png" alt="Tony Stark en estilo tecnológico">
+                <img class="home-image" src="${tonyImage}" alt="Tony Stark en estilo tecnológico">
             </div>
         </section>
     `;
