@@ -77,7 +77,7 @@ try{
     
 } catch (error) {
     response.status(502).json({
-        error: "No se pudo conectar con Gemini",
+        error: "Tony está recalibrando el reactor. Intenta de nuevo en unos segundos.",
     });
 }}
 
