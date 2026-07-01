@@ -215,6 +215,27 @@ button:focus-visible {
     box-shadow: 0 0 18px rgba(245, 185, 66, 0.25);
 }
 
+.home-content {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.home-text {
+    display: grid;
+    gap: 1rem;
+}
+
+.home-image {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    justify-self: center;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 24px rgba(245, 185, 66, 0.18);
+    object-fit: cover;
+}
 
 
 @media (min-width: 768px) {
@@ -251,5 +272,9 @@ button:focus-visible {
 
     nav {
         justify-content: flex-start;
+    }
+
+    .home-content {
+        grid-template-columns: 1fr 360px;
     }
 }

@@ -3,32 +3,27 @@ import { isEmptyMessage } from "./utils.js";
 
 const messages = [];
 
-async function getTonyReply(messages){
-
+async function getTonyReply(messages) {
     const recentMessages = messages.slice(-8);
 
     const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages : recentMessages }),
-        });
-    
-    const data = await response.json();
+        body: JSON.stringify({ messages: recentMessages }),
+    });
 
-    if(!data.reply) {
-        throw new Error (data.error || "Respuesta inválida del servidor.");
-    }
-
-  
-
-    return data.reply;
-
-    if(!response.ok){
+    if (!response.ok) {
         throw new Error("No se pudo obtener respuesta de Tony.");
     }
 
-}
+    const data = await response.json();
 
+    if (!data.reply) {
+        throw new Error(data.error || "Respuesta inválida del servidor.");
+    }
+
+    return data.reply;
+}
 
 
 export function setupChat (){
@@ -36,6 +31,13 @@ export function setupChat (){
     const messageInput = document.querySelector("#message-input");
     const chatMessages = document.querySelector("#chat-messages");
     const chatStatus = document.querySelector("#chat-status");
+
+    messageInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        chatForm.requestSubmit();
+    }
+    });
 
     chatForm.addEventListener ("submit", async (event) =>{
         event.preventDefault();
